@@ -13,7 +13,6 @@ type User struct {
 	PhotoId   *string    `json:"photo_id,omitempty"`
 	Password  *string    `json:"password,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
 
 func (u User) Validate() error {

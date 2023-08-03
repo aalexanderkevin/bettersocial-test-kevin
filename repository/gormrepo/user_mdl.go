@@ -15,7 +15,6 @@ type User struct {
 	PhotoId   *string
 	Password  *string
 	CreatedAt *time.Time
-	UpdatedAt *time.Time
 }
 
 func (u User) FromModel(data model.User) *User {
@@ -34,7 +33,6 @@ func (u User) ToModel() *model.User {
 		PhotoId:   u.PhotoId,
 		Password:  u.Password,
 		CreatedAt: u.CreatedAt,
-		UpdatedAt: u.UpdatedAt,
 	}
 }
 
