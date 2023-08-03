@@ -32,7 +32,7 @@ func (u UserRepo) GetByUsername(ctx context.Context, username string) (*model.Us
 		Username: &username,
 	}
 
-	err := u.db.WithContext(ctx).First(&username).Error
+	err := u.db.WithContext(ctx).First(&user).Error
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, model.NewNotFoundError()
