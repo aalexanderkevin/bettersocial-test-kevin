@@ -12,7 +12,7 @@ import (
 type User struct {
 	Id        *string
 	Username  *string
-	PhotoId   *string
+	ImageId   *string
 	Password  *string
 	CreatedAt *time.Time
 }
@@ -21,7 +21,7 @@ func (u User) FromModel(data model.User) *User {
 	return &User{
 		Id:       data.Id,
 		Username: data.Username,
-		PhotoId:  data.PhotoId,
+		ImageId:  data.ImageId,
 		Password: data.Password,
 	}
 }
@@ -30,7 +30,7 @@ func (u User) ToModel() *model.User {
 	return &model.User{
 		Id:        u.Id,
 		Username:  u.Username,
-		PhotoId:   u.PhotoId,
+		ImageId:   u.ImageId,
 		Password:  u.Password,
 		CreatedAt: u.CreatedAt,
 	}

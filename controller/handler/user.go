@@ -23,6 +23,17 @@ func NewUser(appContainer *container.Container) *User {
 	return &User{appContainer: appContainer}
 }
 
+// @Summary check username
+// @Description check username
+// @Tags check-username
+// @Accept  json
+// @Produce  json
+// @Param username path string true " "
+// @Success 200
+// @Failure 401
+// @Failure 422
+// @Security BearerAuth
+// @Router /v1/user/:username [get]
 func (u *User) CheckUsername(c *gin.Context) {
 	logger := helper.GetLogger(c).WithField("method", "Controller.Handler.CheckUsername")
 
@@ -50,4 +61,3 @@ func (u *User) CheckUsername(c *gin.Context) {
 
 	response.WriteSuccessResponse(c, nil)
 }
-

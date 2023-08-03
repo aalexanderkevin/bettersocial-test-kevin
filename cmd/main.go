@@ -73,7 +73,9 @@ func (defaultAppProvider) BuildContainer(ctx context.Context, options buildOptio
 		appContainer.SetDb(db)
 
 		todoRepo := gormrepo.NewUserRepository(db)
-		appContainer.SetTodoRepo(todoRepo)
+		imageRepo := gormrepo.NewImageRepository(db)
+		appContainer.SetUserRepo(todoRepo)
+		appContainer.SetImageRepo(imageRepo)
 	}
 
 	deferFn := func() {

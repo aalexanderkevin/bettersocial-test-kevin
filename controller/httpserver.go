@@ -25,7 +25,8 @@ type httpServer struct {
 }
 
 type controllers struct {
-	user handler.User
+	user  handler.User
+	image handler.Image
 }
 
 func NewHttpServer(container *container.Container) *httpServer {
@@ -38,6 +39,7 @@ func NewHttpServer(container *container.Container) *httpServer {
 
 	controllers := controllers{
 		*handler.NewUser(container),
+		*handler.NewImage(container),
 	}
 	requestHandler := &httpServer{container.Config(), engine, controllers}
 	requestHandler.setupRouting()

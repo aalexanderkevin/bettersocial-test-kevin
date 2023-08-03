@@ -24,7 +24,7 @@ func TestUser_CheckUsername(t *testing.T) {
 		userMock.On("GetByUsername", mock.Anything, username).Return(nil, errors.New("error get username")).Once()
 
 		appContainer := container.Container{}
-		appContainer.SetTodoRepo(userMock)
+		appContainer.SetUserRepo(userMock)
 
 		// CODE UNDER TEST
 		uc := usecase.NewUser(&appContainer)
@@ -44,7 +44,7 @@ func TestUser_CheckUsername(t *testing.T) {
 		userMock.On("GetByUsername", mock.Anything, username).Return(&model.User{}, nil).Once()
 
 		appContainer := container.Container{}
-		appContainer.SetTodoRepo(userMock)
+		appContainer.SetUserRepo(userMock)
 
 		// CODE UNDER TEST
 		uc := usecase.NewUser(&appContainer)
@@ -64,7 +64,7 @@ func TestUser_CheckUsername(t *testing.T) {
 		userMock.On("GetByUsername", mock.Anything, username).Return(nil, model.NewNotFoundError()).Once()
 
 		appContainer := container.Container{}
-		appContainer.SetTodoRepo(userMock)
+		appContainer.SetUserRepo(userMock)
 
 		// CODE UNDER TEST
 		uc := usecase.NewUser(&appContainer)
@@ -74,4 +74,3 @@ func TestUser_CheckUsername(t *testing.T) {
 		userMock.AssertExpectations(t)
 	})
 }
-

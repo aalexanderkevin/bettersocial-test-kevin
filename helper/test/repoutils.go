@@ -4,6 +4,7 @@ import (
 	"bettersocial/helper"
 	"bettersocial/model"
 	"bettersocial/repository/gormrepo"
+	"io/ioutil"
 
 	"context"
 	"testing"
@@ -18,7 +19,7 @@ func FakeUser(t *testing.T, cb func(user model.User) model.User) model.User {
 
 	fakeRp := model.User{
 		Username: helper.Pointer(fake.CharactersN(10)),
-		PhotoId:  helper.Pointer(fake.CharactersN(10)),
+		ImageId:  helper.Pointer(fake.CharactersN(10)),
 		Password: helper.Pointer(fake.CharactersN(10)),
 	}
 	if cb != nil {
@@ -37,4 +38,12 @@ func FakeUserCreate(t *testing.T, db *gorm.DB, callback func(user model.User) mo
 	require.NoError(t, err)
 
 	return user
+}
+
+func FakeImageBinary(t *testing.T) []byte {
+	imagePath := "test/test.jpeg"
+	imageData, err := ioutil.ReadFile(imagePath)
+	require.NoError(t, err)
+
+	return imageData
 }

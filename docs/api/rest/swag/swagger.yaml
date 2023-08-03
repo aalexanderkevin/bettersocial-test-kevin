@@ -1,0 +1,48 @@
+info:
+  contact: {}
+paths:
+  /v1/upload:
+    post:
+      consumes:
+      - application/json
+      description: upload
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "401":
+          description: ""
+        "422":
+          description: ""
+      security:
+      - BearerAuth: []
+      summary: upload
+      tags:
+      - upload
+  /v1/user/:username:
+    get:
+      consumes:
+      - application/json
+      description: check username
+      parameters:
+      - description: ' '
+        in: path
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "401":
+          description: ""
+        "422":
+          description: ""
+      security:
+      - BearerAuth: []
+      summary: check username
+      tags:
+      - check-username
+swagger: "2.0"

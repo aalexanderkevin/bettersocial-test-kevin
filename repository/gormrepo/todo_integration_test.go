@@ -88,6 +88,6 @@ func TestUserRepository_GetByUsername(t *testing.T) {
 		require.Equal(t, *fakeUser.Id, *todo.Id)
 		require.Equal(t, *fakeUser.Username, *todo.Username)
 		require.Equal(t, *fakeUser.Password, *todo.Password)
-		require.Equal(t, *fakeUser.PhotoId, *todo.PhotoId)
+		require.Equal(t, *fakeUser.ImageId, *todo.ImageId)
 	})
 }

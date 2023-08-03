@@ -1,0 +1,79 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/v1/upload": {
+            "post": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "upload",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "upload"
+                ],
+                "summary": "upload",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": ""
+                    },
+                    "422": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/user/:username": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "check username",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "check-username"
+                ],
+                "summary": "check username",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": " ",
+                        "name": "username",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "401": {
+                        "description": ""
+                    },
+                    "422": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

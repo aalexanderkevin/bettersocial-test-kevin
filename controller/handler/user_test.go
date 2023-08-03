@@ -25,7 +25,7 @@ func TestUser_CheckUsername(t *testing.T) {
 		userMock.On("GetByUsername", mock.Anything, username).Return(nil, model.NewNotFoundError()).Once()
 
 		router := test.SetupHttpHandler(t, func(appContainer *container.Container) *container.Container {
-			appContainer.SetTodoRepo(userMock)
+			appContainer.SetUserRepo(userMock)
 			return appContainer
 		})
 
@@ -48,7 +48,7 @@ func TestUser_CheckUsername(t *testing.T) {
 		userMock.On("GetByUsername", mock.Anything, username).Return(&model.User{}, nil).Once()
 
 		router := test.SetupHttpHandler(t, func(appContainer *container.Container) *container.Container {
-			appContainer.SetTodoRepo(userMock)
+			appContainer.SetUserRepo(userMock)
 			return appContainer
 		})
 
@@ -90,3 +90,4 @@ func TestUser_CheckUsername(t *testing.T) {
 
 		require.Equal(t, "username should be an alphanumeric", resBody.Message)
 	})
+}

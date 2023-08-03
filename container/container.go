@@ -12,7 +12,8 @@ type Container struct {
 	config config.Config
 
 	// repo
-	userRepo repository.User
+	userRepo  repository.User
+	imageRepo repository.Image
 }
 
 func NewContainer() *Container {
@@ -39,6 +40,14 @@ func (c *Container) UserRepo() repository.User {
 	return c.userRepo
 }
 
-func (c *Container) SetTodoRepo(userRepo repository.User) {
+func (c *Container) SetUserRepo(userRepo repository.User) {
 	c.userRepo = userRepo
+}
+
+func (c *Container) ImageRepo() repository.Image {
+	return c.imageRepo
+}
+
+func (c *Container) SetImageRepo(imageRepo repository.Image) {
+	c.imageRepo = imageRepo
 }
