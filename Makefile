@@ -29,3 +29,6 @@ test-infra-up:
 test-infra-down:
 	@echo ">> Shutting Down Test DB"
 	@-docker kill test-postgres
+
+migrate:
+	eval $$(egrep -v '^#' .env | xargs -0) go run bettersocial/cmd migrate

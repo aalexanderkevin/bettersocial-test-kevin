@@ -14,7 +14,7 @@ type DBConfig struct {
 	Port       uint   `default:"5432" env:"POSTGRES_PORT"`
 	Database   string `default:"gits" env:"POSTGRES_DATABASE"`
 	Migrations struct {
-		Path string `default:"database/migrations" env:"POSTGRES_MIGRATION_PATH"`
+		Path string `default:"migrations" env:"POSTGRES_MIGRATION_PATH"`
 	}
 	MaxIdleConnections int  `default:"25" env:"POSTGRES_MAX_IDLE_CONN"`
 	MaxOpenConnections int  `default:"0" env:"POSTGRES_MAX_OPEN_CONN"`
